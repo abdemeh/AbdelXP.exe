@@ -18,6 +18,7 @@ const ZOOM_DISPLAY_BASE = 1.1;
 const TIP_MIN_INTERVAL_MS = 18000;
 const TIP_MAX_INTERVAL_MS = 35000;
 const TIP_AUTO_DISMISS_MS = 9000;
+const withBasePath = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
 
 const APP_LABELS = {
   en: {
@@ -247,10 +248,10 @@ function getWindowStyle(appId, index, windowPositions) {
 
 function getResumePdfPath(language) {
   if (language === "fr") {
-    return "/docs/resume_fr.pdf";
+    return withBasePath("docs/resume_fr.pdf");
   }
 
-  return "/docs/resume_en.pdf";
+  return withBasePath("docs/resume_en.pdf");
 }
 
 function App() {
@@ -826,15 +827,15 @@ function App() {
   if (sessionState === "user-picker") {
     return (
       <div className="session-shell" style={shellStyle}>
-        <audio ref={loginAudioRef} src="/music/login.wav" preload="auto" />
-        <audio ref={logoutAudioRef} src="/music/logout.wav" preload="auto" />
+        <audio ref={loginAudioRef} src={withBasePath("music/login.wav")} preload="auto" />
+        <audio ref={logoutAudioRef} src={withBasePath("music/logout.wav")} preload="auto" />
 
         <main className="user-picker-screen">
-          <img className="session-logo" src="/images/windows.png" alt="" aria-hidden="true" />
+          <img className="session-logo" src={withBasePath("images/windows.png")} alt="" aria-hidden="true" />
           <h1>{WELCOME_LABEL}</h1>
           <p className="session-subtitle">{texts.chooseUser}</p>
           <button type="button" className="user-tile" onClick={handleUserLogin}>
-            <img src="/images/profile.png" alt="User avatar" />
+            <img src={withBasePath("images/profile.png")} alt="User avatar" />
             <span>{resume.profile.name}</span>
             <small>{texts.clickToLogin}</small>
           </button>
@@ -845,11 +846,11 @@ function App() {
 
   return (
     <div className="os-shell" style={shellStyle}>
-      <audio ref={loginAudioRef} src="/music/login.wav" preload="auto" />
-      <audio ref={logoutAudioRef} src="/music/logout.wav" preload="auto" />
-      <audio ref={alertAudioRef} src="/music/alert.wav" preload="auto" />
-      <audio ref={infoAudioRef} src="/music/info.wav" preload="auto" />
-      <audio ref={dingAudioRef} src="/music/ding.wav" preload="auto" />
+      <audio ref={loginAudioRef} src={withBasePath("music/login.wav")} preload="auto" />
+      <audio ref={logoutAudioRef} src={withBasePath("music/logout.wav")} preload="auto" />
+      <audio ref={alertAudioRef} src={withBasePath("music/alert.wav")} preload="auto" />
+      <audio ref={infoAudioRef} src={withBasePath("music/info.wav")} preload="auto" />
+      <audio ref={dingAudioRef} src={withBasePath("music/ding.wav")} preload="auto" />
 
       <main
         className="desktop-area"
@@ -926,7 +927,7 @@ function App() {
       {sessionState === "booting" ? (
         <section className="boot-overlay" aria-label={WELCOME_LABEL}>
           <div className="boot-branding-top">
-            <img src="/images/windows.png" alt="" aria-hidden="true" />
+            <img src={withBasePath("images/windows.png")} alt="" aria-hidden="true" />
             <p className="boot-branding-text">AbdelXP.exe</p>
           </div>
           <h1>{WELCOME_LABEL}</h1>
@@ -943,7 +944,7 @@ function App() {
           <article className="welcome-window">
             <div className="xp-titlebar welcome-titlebar">
               <div className="xp-title">
-                <img src="/images/file.png" alt="" aria-hidden="true" />
+                <img src={withBasePath("images/file.png")} alt="" aria-hidden="true" />
                 <span>{texts.bootTitle}</span>
               </div>
 
@@ -985,7 +986,7 @@ function App() {
           <article className="alert-window">
             <div className="xp-titlebar welcome-titlebar">
               <div className="xp-title">
-                <img src="/images/alert.png" alt="" aria-hidden="true" />
+                <img src={withBasePath("images/alert.png")} alt="" aria-hidden="true" />
                 <span>{texts.clickAlertTitle}</span>
               </div>
 
@@ -999,7 +1000,7 @@ function App() {
 
             <div className="alert-content">
               <img
-                src="/images/alert.png"
+                src={withBasePath("images/alert.png")}
                 className="alert-illustration"
                 alt=""
                 aria-hidden="true"
@@ -1034,7 +1035,7 @@ function App() {
           <article className="alert-window">
             <div className="xp-titlebar welcome-titlebar">
               <div className="xp-title">
-                <img src="/images/alert.png" alt="" aria-hidden="true" />
+                <img src={withBasePath("images/alert.png")} alt="" aria-hidden="true" />
                 <span>{texts.rightClickAlertTitle}</span>
               </div>
 
@@ -1048,7 +1049,7 @@ function App() {
 
             <div className="alert-content">
               <img
-                src="/images/alert.png"
+                src={withBasePath("images/alert.png")}
                 className="alert-illustration"
                 alt=""
                 aria-hidden="true"
@@ -1082,14 +1083,14 @@ function App() {
             aria-label="Start menu"
             onClick={() => setStartMenuOpen((previous) => !previous)}
           >
-            <img className="start-icon" src="/images/windows.png" alt="" aria-hidden="true" />
+            <img className="start-icon" src={withBasePath("images/windows.png")} alt="" aria-hidden="true" />
             <span>{texts.start}</span>
           </button>
 
           {startMenuOpen ? (
             <section className="start-menu" aria-label="Start menu panel">
               <header className="start-menu-header">
-                <img src="/images/profile.png" alt="" aria-hidden="true" />
+                <img src={withBasePath("images/profile.png")} alt="" aria-hidden="true" />
                 <span>{resume.profile.name}</span>
               </header>
 
@@ -1254,7 +1255,7 @@ function App() {
             aria-label={texts.tipOpenButton}
             title={texts.tipOpenButton}
           >
-            <img src="/images/mistery.png" alt="" aria-hidden="true" />
+            <img src={withBasePath("images/mistery.png")} alt="" aria-hidden="true" />
           </button>
 
           <button
@@ -1265,7 +1266,7 @@ function App() {
             title={soundEnabled ? "Sound on" : "Sound off"}
           >
             <img
-              src={soundEnabled ? "/images/sound_on.png" : "/images/sound_off.png"}
+              src={soundEnabled ? withBasePath("images/sound_on.png") : withBasePath("images/sound_off.png")}
               alt=""
               aria-hidden="true"
             />
@@ -1325,7 +1326,7 @@ function AboutPanel({ profile, texts }) {
     <section className="window-body about-panel">
       <div className="about-header">
         <img
-          src="/images/profile.png"
+          src={withBasePath("images/profile.png")}
           className="profile-avatar"
           alt="Profile avatar"
         />
@@ -1429,19 +1430,19 @@ function HobbiesPanel({ texts }) {
   const gameCovers = [
     {
       title: "Valorant",
-      image: "/images/games/valorant.png"
+      image: withBasePath("images/games/valorant.png")
     },
     {
       title: "EA FC 26",
-      image: "/images/games/ea_fc_26.png"
+      image: withBasePath("images/games/ea_fc_26.png")
     },
     {
       title: "The Last of Us",
-      image: "/images/games/the_last_of_us.png"
+      image: withBasePath("images/games/the_last_of_us.png")
     },
     {
       title: "Red Dead",
-      image: "/images/games/red_dead_redemption.png"
+      image: withBasePath("images/games/red_dead_redemption.png")
     }
   ];
 
@@ -1451,7 +1452,7 @@ function HobbiesPanel({ texts }) {
 
       <article className="hobby-card">
         <header className="hobby-header">
-          <img src="/images/controller.png" alt="" aria-hidden="true" />
+          <img src={withBasePath("images/controller.png")} alt="" aria-hidden="true" />
           <h3>{texts.gamingLabel}</h3>
         </header>
 
@@ -1470,7 +1471,7 @@ function HobbiesPanel({ texts }) {
       <div className="hobby-secondary-grid">
         <article className="hobby-card">
           <header className="hobby-header">
-            <img src="/images/cooking.png" alt="" aria-hidden="true" />
+            <img src={withBasePath("images/cooking.png")} alt="" aria-hidden="true" />
             <h3>{texts.cookingLabel}</h3>
           </header>
           <p>{texts.cookingText}</p>
@@ -1478,7 +1479,7 @@ function HobbiesPanel({ texts }) {
 
         <article className="hobby-card">
           <header className="hobby-header">
-            <img src="/images/surf.png" alt="" aria-hidden="true" />
+            <img src={withBasePath("images/surf.png")} alt="" aria-hidden="true" />
             <h3>{texts.surfLabel}</h3>
           </header>
           <p>{texts.surfText}</p>
@@ -1503,7 +1504,7 @@ function ResumePanel({ language, texts }) {
           aria-label={texts.downloadResume}
           title={texts.downloadResume}
         >
-          <img src="/images/download.png" alt="" aria-hidden="true" />
+          <img src={withBasePath("images/download.png")} alt="" aria-hidden="true" />
           <span>{texts.downloadResume}</span>
         </a>
       </div>
@@ -1524,22 +1525,22 @@ function ContactPanel({ profile, texts }) {
     <section className="window-body contact-panel">
       <h2>{texts.contactTitle}</h2>
       <a className="contact-row" href={`mailto:${contact.email}`}>
-        <img src="/images/mail.png" alt="" aria-hidden="true" />
+        <img src={withBasePath("images/mail.png")} alt="" aria-hidden="true" />
         <span>{contact.email}</span>
       </a>
 
       <div className="contact-row">
-        <img src="/images/location.png" alt="" aria-hidden="true" />
+        <img src={withBasePath("images/location.png")} alt="" aria-hidden="true" />
         <span>{contact.address}</span>
       </div>
 
       <a className="contact-row" href={contact.github} target="_blank" rel="noreferrer">
-        <img src="/images/github.png" alt="" aria-hidden="true" />
+        <img src={withBasePath("images/github.png")} alt="" aria-hidden="true" />
         <span>github.com/abdemeh</span>
       </a>
 
       <a className="contact-row" href={contact.linkedin} target="_blank" rel="noreferrer">
-        <img src="/images/linkedin.png" alt="" aria-hidden="true" />
+        <img src={withBasePath("images/linkedin.png")} alt="" aria-hidden="true" />
         <span>{contact.linkedin.replace(/^https?:\/\//, "")}</span>
       </a>
     </section>

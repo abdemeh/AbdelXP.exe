@@ -1,3 +1,5 @@
+const withBasePath = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+
 export const resumeData = {
   en: {
     profile: {
@@ -227,56 +229,56 @@ export const desktopApps = [
     label: "About Me",
     taskLabel: "About Me",
     windowTitle: "About Me",
-    icon: "/images/about.png"
+    icon: withBasePath("images/about.png")
   },
   {
     id: "education",
     label: "Education",
     taskLabel: "Education",
     windowTitle: "Education",
-    icon: "/images/graduation.png"
+    icon: withBasePath("images/graduation.png")
   },
   {
     id: "experience",
     label: "Experience",
     taskLabel: "Experience",
     windowTitle: "Experience",
-    icon: "/images/suitcase.png"
+    icon: withBasePath("images/suitcase.png")
   },
   {
     id: "projects",
     label: "Projects",
     taskLabel: "Projects",
     windowTitle: "Projects",
-    icon: "/images/code.png"
+    icon: withBasePath("images/code.png")
   },
   {
     id: "skills",
     label: "Skills",
     taskLabel: "Skills",
     windowTitle: "Skills",
-    icon: "/images/book.png"
+    icon: withBasePath("images/book.png")
   },
   {
     id: "hobbies",
     label: "Hobbies",
     taskLabel: "Hobbies",
     windowTitle: "Hobbies",
-    icon: "/images/controller.png"
+    icon: withBasePath("images/controller.png")
   },
   {
     id: "contact",
     label: "Contact",
     taskLabel: "Contact",
     windowTitle: "Contact",
-    icon: "/images/mail.png"
+    icon: withBasePath("images/mail.png")
   },
   {
     id: "resume",
     label: "Resume",
     taskLabel: "Resume",
     windowTitle: "Resume",
-    icon: "/images/resume.png"
+    icon: withBasePath("images/resume.png")
   }
 ];
 
@@ -294,7 +296,7 @@ export const windowLayout = {
 export const wallpapers = [
   {
     id: "wallpaper-1",
-    file: "/images/wallpaper-1.png",
+    file: withBasePath("images/wallpaper-1.png"),
     label: {
       en: "Wallpaper 1",
       fr: "Fond d'écran 1"
@@ -302,7 +304,7 @@ export const wallpapers = [
   },
   {
     id: "wallpaper-2",
-    file: "/images/wallpaper-2.png",
+    file: withBasePath("images/wallpaper-2.png"),
     label: {
       en: "Wallpaper 2",
       fr: "Fond d'écran 2"
@@ -310,7 +312,7 @@ export const wallpapers = [
   },
   {
     id: "wallpaper-3",
-    file: "/images/wallpaper-3.png",
+    file: withBasePath("images/wallpaper-3.png"),
     label: {
       en: "Wallpaper 3",
       fr: "Fond d'écran 3"
@@ -318,7 +320,7 @@ export const wallpapers = [
   },
   {
     id: "wallpaper-4",
-    file: "/images/wallpaper-4.png",
+    file: withBasePath("images/wallpaper-4.png"),
     label: {
       en: "Wallpaper 4",
       fr: "Fond d'écran 4"
