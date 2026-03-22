@@ -84,3 +84,5 @@ npm run lint     # Check code quality
 ## 📝 License
 
 Built with ❤️ and nostalgia — Enjoy the retro vibes!
+
+Made with love and IA (thanks Copilot).
